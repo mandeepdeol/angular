@@ -1,0 +1,6 @@
+<div ng-show="group.show">
+	 <span md-high-light> {{group.name}} - {{group.show}} </md-high-light>
+	<span ng-repeat="childGroup in group.children">
+		<md-group  group="childGroup"> </md-group>
+	<span>
+</div>
