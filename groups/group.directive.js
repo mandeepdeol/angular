@@ -9,7 +9,8 @@
 			restrict: 'E',
 			templateUrl: 'group.html',
 			scope : {
-				group : '='
+				group : '=',
+				highlight : '='
 			}
 		};
 	}

@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	/*global angular*/
-	angular.module('example', []);
+	angular.module('example', ['ngSanitize']);
 
 	angular.module('example').directive('mdMain', mdMain);
 
@@ -14,6 +14,7 @@
 		};
 
 		function MainController() {
+
 			var vm = this;
 			vm.title = 'Mandeep';
 
@@ -136,6 +137,16 @@
 				]
 			};
 
+			vm.highlight = function(text){
+				if( !vm.query || vm.query === '' )
+					return text;
+
+				var decoratedText = text.replace(new RegExp('(' + vm.query + ')', 'gi'),
+									'<span class="highlighted">$1</span>');
+				return decoratedText;
+			};
+
+		
 			function match(value) {
 				return value.toLowerCase().indexOf(vm.query.toLowerCase()) > -1;
 			}
