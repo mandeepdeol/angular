@@ -1,5 +1,10 @@
-<div ng-show="group.show">
+<div style="border: 1px solid black;padding: 10px;" ng-show="group.show">
 	 <span md-high-light> {{group.name}} - {{group.show}} </md-high-light>
+	 <ul> 
+	 	<li ng-repeat="(key,value) in group.searchObj">
+	 		{{key}} - {{value}}
+	 	</li>
+	 </ul>
 	<span ng-repeat="childGroup in group.children">
 		<md-group  group="childGroup"> </md-group>
 	<span>

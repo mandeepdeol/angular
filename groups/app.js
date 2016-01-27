@@ -15,32 +15,125 @@
 
 		function MainController() {
 			var vm = this;
-			vm.title = "Mandeep";
+			vm.title = 'Mandeep';
 
 			vm.query = '';
 
 			vm.rootGroup = {
 				name: 'root',
 				show: true,
-				children: [{
-					name: 'child 1',
-					show: true,
-					searchObj: {
-						key: 'key 1',
-						value: 'value 1'
-					}
-				}, {
-					name: 'child 2',
-					searchObj: {
-						key: 'key 2',
-						value: 'value 2'
-					},
-					show: true
-				}],
+
 				searchObj: {
 					key: 'root key',
 					value: 'root value'
-				}
+				},
+				children: [{
+						name: 'child 1',
+						show: true,
+						searchObj: {
+							name: 'key 1',
+							description: 'value 1',
+							age: '20'
+						},
+						children: [{
+								name: 'child 1 - 1',
+								searchObj: {
+									name: 'child 1 - 1',
+									value: 'Hello World dfad'
+								},
+								show: true,
+							}, {
+								name: 'child 1 - 2',
+								searchObj: {
+									name: 'child 1 - 2',
+									value: 'Hello World dfad'
+								},
+								show: true,
+								children: [{
+										name: 'child 1 - 2 -1',
+										searchObj: {
+											name: 'child 1 - 2 -1',
+											value: 'Hello World dfad'
+										},
+										show: true,
+									}, {
+										name: 'child 1 - 2 -  2',
+										searchObj: {
+											name: 'child 1  - 2 - 2',
+											value: 'Hello World dfad'
+										},
+										show: true
+									}
+
+								]
+							}
+
+						]
+					}, {
+						name: 'child 2',
+						searchObj: {
+							name: 'key 2',
+							value: 'Hello World'
+						},
+						show: true
+					}, {
+						name: 'child 3',
+						show: true,
+						searchObj: {
+							name: 'key 6',
+							description: 'value 4',
+							age: '20'
+						},
+						children: [{
+								name: 'child 3 - 1',
+								searchObj: {
+									name: 'child 3 - 1',
+									value: 'Hello World dfad'
+								},
+								show: true,
+							}, {
+								name: 'child 3 - 2',
+								searchObj: {
+									name: 'child 3 - 2',
+									value: 'Hello World dfad'
+								},
+								show: true
+							}
+
+						]
+					},
+
+					{
+						name: 'child 4',
+						show: true,
+						searchObj: {
+							name: 'key 1',
+							description: 'value 1',
+							age: '20'
+						}
+					},
+
+					{
+						name: 'child 5',
+						show: true,
+						searchObj: {
+							name: 'key 1',
+							description: 'valfffue 1',
+							age: '2440'
+						}
+					},
+
+					{
+						name: 'child 6',
+						show: true,
+						searchObj: {
+							name: 'child 6',
+							description: 'other data i am running out of ideas',
+							age: '2440'
+						}
+					}
+
+				]
 			};
 
 			function match(value) {
@@ -52,7 +145,7 @@
 
 				group.show = false;
 
-				if (vm.query && vm.query !== "") {
+				if (vm.query && vm.query !== '') {
 					angular.forEach(group.searchObj, function(value, key) {
 						group.show = group.show || match(value) || match(key);
 					});
